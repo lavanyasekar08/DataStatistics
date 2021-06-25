@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<h1>Click Through Rate</h1>
+<table>
+  <tr>
+    <th>campaign</th>
+    <th>Datasource</th>
+    <th>ClickThroughRate %</th>
+  </tr>
+ {{#listvalues}}
+  <tr>
+    <td>{{campaign}}</td>
+    <td>{{dataSource}}</td>
+   	 <td>{{ctr}}</td>
+  </tr>
+ {{/listvalues}}
+</table>
+</body>
+</html>

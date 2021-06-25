@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h1>Total Number of Campaign Clicks</h1>
+
+<table>
+  <tr>
+    <th>Campaign</th>
+    <th>Total Clicks</th>
+  </tr>
+ {{#clicksValue}}
+  <tr>
+    
+    <td>{{campaign}}</td>
+   	 <td>{{clicks}}</td>
+  </tr>
+ {{/clicksValue}}
+</table>
+
+</body>
+</html>

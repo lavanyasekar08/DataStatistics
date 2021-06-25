@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h1>Total Number of Clicks</h1>
+
+<table>
+  <tr>
+    <th>FromDate</th>
+    <th>ToDate</th>
+    <th>Datasource</th>
+    <th>TotalNumberofClciks</th>
+  </tr>
+ {{#listvalues}}
+  <tr>
+    <td>{{fromDate}}</td>
+     <td>{{toDate}}</td>
+    <td>{{dataSource}}</td>
+   	 <td>{{clicks}}</td>
+  </tr>
+ {{/listvalues}}
+</table>
+
+</body>
+</html>
