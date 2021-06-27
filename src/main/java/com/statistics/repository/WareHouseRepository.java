@@ -195,9 +195,6 @@ public HashMap getCampaignClicks(String campaign) {
 		rs=preStatement.executeQuery();
 		}
 
-		
-		
-		System.out.println("Test");
 		while(rs.next()) {
 			totalNumberOfClicks=Integer.parseInt(rs.getString("TotalNumbeOfClicks"));
 			campaign=rs.getString("Campaign");

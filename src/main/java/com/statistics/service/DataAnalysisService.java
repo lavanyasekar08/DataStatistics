@@ -121,7 +121,6 @@ public class DataAnalysisService {
              String numberOfClicks = entry.getValue();
              gd.setCampaign(campaignKey);
              gd.setClicks(numberOfClicks);
-             System.out.println("Campaign"+campaignKey+"numberOfClicks"+numberOfClicks);
              campaignTotalclicks.add(gd);
         }
 		return campaignTotalclicks;

@@ -27,7 +27,7 @@ public class SwaggerConfig {
                 "Spring Boot REST API for Data Statistics",
                 "1.0",
                 "Terms of service",
-                new Contact("Lavanya", "https://com.statistics.guru/about/", "lav0809@gmail.com"),
+                new Contact("Lavanya","","lav0809@gmail.com"),
                "Apache License Version 2.0",
                 "https://www.apache.org/licenses/LICENSE-2.0");
         return apiInfo;

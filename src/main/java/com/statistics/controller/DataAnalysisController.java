@@ -22,7 +22,7 @@ import io.swagger.annotations.Api;
 
 @Controller
 @RequestMapping("/DataAnalysis")
-@Api(value="DataMetrices", description="Analysis of Ads data")
+@Api(value="DataMetrices", description="Analysis of Marketing data")
 public class DataAnalysisController {
 	@Autowired
 	DataAnalysisService ds;
@@ -35,8 +35,6 @@ public class DataAnalysisController {
 		
 		String clicks=ds.getClicks(fromDate,toDate,dataSource);
 		gc.setClicks(clicks);
-		//List<GetClicksDAO> Al=new ArrayList();
-		//Al.add(gc);
 		model.addAttribute("listvalues",gc);
 		return new ModelAndView("clicks"); 
 		
@@ -46,12 +44,9 @@ public class DataAnalysisController {
 	public ModelAndView calculateCTR(@RequestParam(name="campaign") String campaign,@RequestParam(name="datasource") String dataSource,Model model)
 	{
 		String ctr=ds.calculateCTR(campaign,dataSource);
-		//List<GetClicksDAO> Al=new ArrayList();
-		//Al.add(gc);
 		model.addAttribute("listvalues",gc);
 		return new ModelAndView("ctr");
-		//return new ResponseEntity(ds.calculateCTR(campaign,dataSource),HttpStatus.ACCEPTED);
-	//return ds.getClicks();	
+		
 	}
 	
 	@GetMapping(value="/ctr")
@@ -63,7 +58,6 @@ public class DataAnalysisController {
 		for(int i=0;i<Al.size();i++)
 		{
 			gc=Al.get(i);
-			System.out.println(gc.getCampaign());
 			
 		}
 		return new ModelAndView("ctr");	
@@ -73,7 +67,6 @@ public class DataAnalysisController {
 	{
 		
 		ArrayList<GetClicksDAO> clicksValue=ds.getCampaignClicks(campaign);
-		
 		model.addAttribute("clicksValue",clicksValue);
 		return new ModelAndView("campaignclicks"); 
 		
