@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +34,7 @@ public static Connection getConnection() throws SQLException, ClassNotFoundExcep
 	return conn;
 }
 
-public String getValuesforClicks(String fromDate,String toDate,String dataSource)
+public GetClicksDAO getValuesforClicks(String fromDate,String toDate,String dataSource)
 {
 	PreparedStatement  statement = null;
 	ResultSet rs = null;
@@ -68,11 +69,13 @@ public String getValuesforClicks(String fromDate,String toDate,String dataSource
 		if (conn != null) try{conn.close();}catch(SQLException ex) {}
 	}
 	gc.setClicks(total);
-	return total;
+	return gc;
 	
 }
 
-public String calculateCTR(String campaign, String dataSource)  {
+public GetClicksDAO calculateCTR(String campaign, String dataSource)  {
+	
+	
 	PreparedStatement  statement = null;
 	ResultSet rs = null;
 	String totalNumberOfClicks=null;
@@ -114,10 +117,12 @@ public String calculateCTR(String campaign, String dataSource)  {
 					 clickThroughRate=(totalClicks/totalImpressions)*100;
 				
 				}
+				System.out.println(campaign);
 				gc.setCampaign(campaign);
 				gc.setDataSource(dataSource);
 				gc.setCtr(Double.toString(Math.floor(clickThroughRate)));
-				return 	 Double.toString(Math.floor(clickThroughRate));
+				//ctrValues.add(gc);
+				return 	 gc;
 
 
 }
