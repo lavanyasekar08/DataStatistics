@@ -21,8 +21,9 @@ public class DataAnalysisService {
 	boolean validfromdate=false;
 	boolean validtodate=false;
 
-	public String getClicks(String fromDate, String toDate, String dataSource)
+	public GetClicksDAO getClicks(String fromDate, String toDate, String dataSource)
 	{
+		GetClicksDAO total=null;
 		if(fromDate!=null)
 		{
 			validfromdate= validateJavaDate(fromDate);
@@ -33,18 +34,15 @@ public class DataAnalysisService {
 		}
 		if(validfromdate && validtodate)
 		{   
-			String total= wr.getValuesforClicks(fromDate,toDate,dataSource);	
-			return total;
+			 total= wr.getValuesforClicks(fromDate,toDate,dataSource);	
+			
 		}
-		else
-		{
-			return "Invalid Date Format";
-		}
+		return total;
 	}
 	
-	public String calculateCTR(String campaign, String dataSource) {
+	public GetClicksDAO calculateCTR(String campaign, String dataSource) {
 		
-		String total=null;
+		GetClicksDAO total=null;
 		total= wr.calculateCTR(campaign,dataSource);
 		return total;
 	}
