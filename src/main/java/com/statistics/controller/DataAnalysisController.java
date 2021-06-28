@@ -33,9 +33,8 @@ public class DataAnalysisController {
 	public ModelAndView getClicks(@RequestParam(name="fromdate") String fromDate,@RequestParam(name="todate") String toDate,@RequestParam(name="datasource") String dataSource,Model model)
 	{
 		
-		String clicks=ds.getClicks(fromDate,toDate,dataSource);
-		gc.setClicks(clicks);
-		model.addAttribute("listvalues",gc);
+		GetClicksDAO clicks=ds.getClicks(fromDate,toDate,dataSource);
+		model.addAttribute("listvalues",clicks);
 		return new ModelAndView("clicks"); 
 		
 	}
@@ -43,8 +42,8 @@ public class DataAnalysisController {
 	@GetMapping(value="/calculatectr")
 	public ModelAndView calculateCTR(@RequestParam(name="campaign") String campaign,@RequestParam(name="datasource") String dataSource,Model model)
 	{
-		String ctr=ds.calculateCTR(campaign,dataSource);
-		model.addAttribute("listvalues",gc);
+		GetClicksDAO gd=ds.calculateCTR(campaign,dataSource);
+		model.addAttribute("listvalues",gd);
 		return new ModelAndView("ctr");
 		
 	}
